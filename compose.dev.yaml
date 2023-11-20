@@ -1,0 +1,19 @@
+services:
+  auction-dev:
+    extends:
+      file: compose.base.yaml
+      service: auction
+    build:
+      target: development
+    environment:
+      - spring_profiles_active=dev
+    ports:
+      - "8000:8080"
+    depends_on:
+      - dev-db
+  dev-db:
+    extends:
+      file: compose.base.yaml
+      service: db
+    ports:
+      - "5000:5432"

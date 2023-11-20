@@ -1,0 +1,11 @@
+services:
+  auction:
+    build:
+      context: .
+  db:
+    image: 'postgres:16.0-alpine3.18'
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: auctions
